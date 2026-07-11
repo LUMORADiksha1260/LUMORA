@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lumora — You're Offline</title>
+<style>
+  body{margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; background:linear-gradient(160deg,#EDEAF8,#E3F1F8 60%,#FBFAFD); color:#241F36; text-align:center; padding:24px;}
+  .card{max-width:360px;}
+  .orb{width:64px; height:64px; border-radius:50%; margin:0 auto 22px; background:radial-gradient(circle at 32% 30%, #fff, #B7A9E8 60%, #8F7FD1 100%); box-shadow:0 20px 40px -10px rgba(143,127,209,.5); animation:breathe 3s ease-in-out infinite;}
+  @keyframes breathe{0%,100%{transform:scale(.9);}50%{transform:scale(1.08);}}
+  h1{font-family:Georgia,serif; font-weight:500; font-size:1.4rem; margin:0 0 10px;}
+  p{color:#6E6A85; font-size:.92rem; line-height:1.6; margin:0 0 22px;}
+  button{padding:13px 26px; border-radius:100px; border:none; background:#241F36; color:#FBFAFD; font-size:.9rem; cursor:pointer;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="orb"></div>
+    <h1>You're offline</h1>
+    <p>Lumora needs a connection to load new content, but anything you've already opened may still be available.</p>
+    <button onclick="location.reload()">Try Again</button>
+  </div>
+</body>
+</html>

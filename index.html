@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Lumora — Your Safe Space for Healing</title>
+    <meta name="description" content="Lumora is an AI-powered mental wellness platform: an emotional companion, private safe space, mood tracking, guided meditation, real counselors, and a caring community." />
+
+    <!-- PWA manifest + theme -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#241F36" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#EDEAF8" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- iOS installability -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Lumora" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      /* Branded splash shown instantly, before the ~250KB React bundle
+         parses — removed by main.jsx once the app has mounted. */
+      #pre-splash{position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,#EDEAF8,#E3F1F8 60%,#FBFAFD); transition:opacity .4s ease;}
+      #pre-splash .orb{width:56px; height:56px; border-radius:50%; background:radial-gradient(circle at 32% 30%, #fff, #B7A9E8 60%, #8F7FD1 100%); box-shadow:0 20px 40px -10px rgba(143,127,209,.5); animation:pre-breathe 2.6s ease-in-out infinite;}
+      @keyframes pre-breathe{0%,100%{transform:scale(.85);}50%{transform:scale(1.1);}}
+      #pre-splash.hide{opacity:0; pointer-events:none;}
+    </style>
+  </head>
+  <body>
+    <div id="pre-splash" aria-hidden="true"><div class="orb"></div></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const s = document.getElementById("pre-splash");
+            if (s) { s.classList.add("hide"); setTimeout(() => s.remove(), 450); }
+          }, 200);
+        });
+      });
+    </script>
+  </body>
+</html>
+
